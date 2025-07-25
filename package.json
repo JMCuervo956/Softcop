@@ -1,10 +1,12 @@
 {
   "name": "aplsoft",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/app.js",
   "type": "module",
   "scripts": {
-    "exec": "nodemon src/app.js"
+    "exec": "nodemon src/app.js",
+    "build:obfuscate": "javascript-obfuscator ./src --output ./dist --config ./obfuscator-config.json",
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
     "sweetalert2": "^11.13.1"
   },
   "devDependencies": {
+    "javascript-obfuscator": "^4.1.1",
     "nodemon": "^3.1.4"
   },
   "description": ""

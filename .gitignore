@@ -1,0 +1,13 @@
+# Ignorar dependencias (ya está)
+node_modules/
+src/
+obfuscator-config.json
+zip-deploy.js
+
+# Ignorar archivos temporales
+*.log
+*.zip
+.DS_Store
+
+# Ignorar variables de entorno
+.env

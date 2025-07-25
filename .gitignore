@@ -1,11 +1,6 @@
 # Ignorar dependencias (ya está)
 node_modules/
-uploads/
-
-# Ignorar código fuente original (ya está ofuscado)
 src/
-
-# Ignorar configuración del ofuscador y scripts locales
 obfuscator-config.json
 zip-deploy.js
 

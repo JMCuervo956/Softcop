@@ -952,20 +952,20 @@ app.get('/pie', async (req, res)=>{
     
 app.get('/opciones', async(req, res) => {
     try {
+        const tableName = "tbl_clsact";
+        const [rows] = await pool.execute(`select * from ${tableName}`);
         if (req.session.loggedin) {
             const userUser = req.session.user;
             const userName = req.session.name;
-            const id = req.query.id;
-            const texto = req.query.texto;
-            const [rows] = await pool.execute("select * from pgtaresp where idprg = ?", [id]);
-            res.render('opciones', { id, texto, data: rows, user: userUser, name: userName });
+            res.render('opciones', { data: rows, user: userUser, name: userName });
+
         } else {
             res.send('Por favor, inicia sesión primero.');
         }
     } catch (error) {
-        console.error('Error conectando a la base de datos....????:', error);
-        res.status(500).send('Error conectando a la base de datos.?????');
-        }
+                console.error('Error conectando a la base de datos....????:', error);
+                res.status(500).send('Error conectando a la base de datos.?????');
+            }
     });
 
 // crgas CSV
